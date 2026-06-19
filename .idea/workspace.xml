@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc6fa566-ec54-4a17-8e80-50958da74213" name="Changes" comment="">
+    <list default="true" id="bc6fa566-ec54-4a17-8e80-50958da74213" name="Changes" comment="Use Collections.class methods such as addAll, copy to create and add elements to the Card deck">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +66,19 @@
       <option name="presentableId" value="Default" />
       <updated>1781858912844</updated>
     </task>
+    <task id="LOCAL-00001" summary="Use Collections.class methods such as addAll, copy to create and add elements to the Card deck">
+      <option name="closed" value="true" />
+      <created>1781873857632</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1781873857632</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Use Collections.class methods such as addAll, copy to create and add elements to the Card deck" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use Collections.class methods such as addAll, copy to create and add elements to the Card deck" />
   </component>
 </project>

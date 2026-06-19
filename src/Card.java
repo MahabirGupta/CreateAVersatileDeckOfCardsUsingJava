@@ -53,7 +53,7 @@ public class Card {
     public static List<Card> getStandardDeck(){
         List<Card> deck = new ArrayList<>(52);
         for (Suit suit:Suit.values()) {
-            for (int i = 2; i <10 ; i++) {
+            for (int i = 2; i <=10 ; i++) {// must include 10 because 10-2+1 = 9
                 deck.add(getNumericCard(suit,i));
             }
             for (char c:new char[]{'J','Q','K','A'}) {

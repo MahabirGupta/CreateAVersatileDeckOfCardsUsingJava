@@ -1,14 +1,10 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        List<Card> deck = Card.getStandardDeck();
-        Card.printDeck(deck);
+
 //        create a Card array with size 13
         Card[] cardArray = new Card[13];
         Card aceOfHearts=Card.getFaceCard(Suit.HEART,'A');
@@ -44,6 +40,39 @@ public class Main {
 
         cards=List.copyOf(kingsOfClubs);
         Card.printDeck(cards,"List Copy of Kings",1);
+        System.out.println();
+        List<Card> deck = Card.getStandardDeck();
+        Card.printDeck(deck);
+        Collections.shuffle(deck);
+        Card.printDeck(deck,"Shuffled Deck",4);
+        System.out.println();
+        Collections.reverse(deck);
+        Card.printDeck(deck,"Reversed Deck of Cards",4);//reverse the elements of the cards
+        System.out.println();
+        Comparator<Card> sorthingAlogarithm=Comparator.comparing(Card::getRank).thenComparing(Card::getSuit);
+        Collections.sort(deck,sorthingAlogarithm);
+        Card.printDeck(deck,"Standard Deck sorted by rank and suit",13);
+        System.out.println();
+        Collections.reverse(deck);
+        Card.printDeck(deck,"Sorted by rank and suit reversed",13);
+        System.out.println();
+        List<Card> kings = new ArrayList<>(deck.subList(4,8));//4 is inclusive and 8 exclusive
+        Card.printDeck(kings,"Kings in deck",1);
+//        System.out.println(kings);
+        System.out.println();
+        List<Card> tens = new ArrayList<>(deck.subList(16,20));//4 is inclusive and 8 exclusive
+        Card.printDeck(tens,"Tens in deck",1);
+        System.out.println();
+//        Collections.shuffle(deck);
+        int indexOfSublist=Collections.indexOfSubList(deck,tens);
+        System.out.println("sublist index for tens = " + indexOfSublist);
+        System.out.println("Contains = "+deck.containsAll(tens));
+        System.out.println();
+        boolean disjoint = Collections.disjoint(deck,tens);
+        System.out.println("disjoint = " + disjoint);
+        System.out.println();
+        boolean disjoint2 = Collections.disjoint(kings,tens);
+        System.out.println("disjoint2 = " + disjoint2);
         }
     }
 
