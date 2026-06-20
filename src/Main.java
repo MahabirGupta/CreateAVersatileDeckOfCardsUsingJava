@@ -73,6 +73,52 @@ public class Main {
         System.out.println();
         boolean disjoint2 = Collections.disjoint(kings,tens);
         System.out.println("disjoint2 = " + disjoint2);
+
+//        sort back the cards
+        deck.sort(sorthingAlogarithm);
+        Card tenOfHearts = Card.getNumericCard(Suit.HEART,10);
+        int foundIndex = Collections.binarySearch(deck,tenOfHearts,sorthingAlogarithm);//list must be sorted before applying binarySearch(
+        System.out.println("foundIndex = "+foundIndex);
+        System.out.println("foundIndex = "+deck.indexOf(tenOfHearts));//should print 34
+        System.out.println(deck.get(foundIndex));// print the match element at that index position
+        System.out.println();
+        Card tenOfClubs = Card.getNumericCard(Suit.CLUB,10);
+        Collections.replaceAll(deck,tenOfClubs,tenOfHearts);
+        Card.printDeck(deck.subList(32,36),"Tens row",1);
+        Collections.replaceAll(deck,tenOfHearts,tenOfClubs);
+        Card.printDeck(deck.subList(32,36),"Tens row",1);
+        if (Collections.replaceAll(deck,tenOfHearts,tenOfClubs)){
+            System.out.println("Tens of Hearts replaced with Tens of Clubs");
+        }else {
+            System.out.println("No tens of hearts found in the list");
+        }
+        System.out.println("Ten of Club cards = "+Collections.frequency(deck,tenOfClubs));
+        System.out.println("Best card = "+Collections.max(deck,sorthingAlogarithm));
+        System.out.println("Worst card = "+Collections.min(deck,sorthingAlogarithm));
+        System.out.println();
+        Comparator<Card> sortBySuit = Comparator.comparing(Card::getSuit).thenComparing(Card::getRank);
+        deck.sort(sortBySuit);
+        Card.printDeck(deck,"Sorted by Suit and Rank",4);
+        System.out.println();
+        List<Card> copied = new ArrayList<>(deck.subList(0,13));
+        Collections.rotate(copied,2);
+        System.out.println("Unrotated: "+deck.subList(0,13));
+        System.out.println("Rotated: "+2+": "+copied);
+        System.out.println();
+         copied = new ArrayList<>(deck.subList(0,13));
+        Collections.rotate(copied,-2);
+        System.out.println("Unrotated: "+deck.subList(0,13));
+        System.out.println("Rotated: "+-2+": "+copied);
+        System.out.println();
+        copied = new ArrayList<>(deck.subList(0,13));
+        for (int i = 0; i < copied.size()/2; i++) {
+            Collections.swap(copied,i,copied.size()-1-i);
+        }
+        System.out.println("Manual reverse: "+copied);
+        System.out.println();
+        copied = new ArrayList<>(deck.subList(0,13));
+        Collections.reverse(copied);
+        System.out.println("Using Collections reverse: "+copied);
         }
     }
 
